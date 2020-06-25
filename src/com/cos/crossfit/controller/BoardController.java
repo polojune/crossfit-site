@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cos.crossfit.action.Action;
 import com.cos.crossfit.action.board.BoardWodHomeAction;
-import com.cos.crossfit.action.board.BoardWodImageUploadProcAction;
+import com.cos.crossfit.action.board.BoardDetailAction;
+import com.cos.crossfit.action.board.BoardUploadProcAction;
 
 @WebServlet("/board")
 public class BoardController extends HttpServlet {
@@ -36,15 +37,22 @@ public class BoardController extends HttpServlet {
 		String cmd = request.getParameter("cmd");
 		System.out.println(TAG + "router : " + cmd);
 		Action action = router(cmd);
+		
 		action.execute(request, response);
 	}
+	
   public Action router(String cmd) {
-	   if(cmd.equals("home")) {
+	 
+	  if(cmd.equals("wod")) {
 		    
 		   return new BoardWodHomeAction();
-	   }else if(cmd.equals("wodImageUploadProc")) {
+	  
+	   }else if(cmd.equals("UploadProc")) {
 		    
-		   return new BoardWodImageUploadProcAction();
+		   return new BoardUploadProcAction();
+	   }else if(cmd.equals("detail")) {
+		    
+		   return new BoardDetailAction();
 	   }
 	   return null;  
   }

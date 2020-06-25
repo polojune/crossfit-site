@@ -30,22 +30,22 @@
 
     
 	<div class="blog">
-
+	<c:forEach var="board" items="${boards}">
 		<!-- Blog Post -->
 		<div class="blog_post blog_post_light">
 			<div class="container">
 				<div class="row">
 					<div class="col">
 						<div class="blog_post_container">
-							<div class="blog_post_image"><img src="" alt=""></div>
+							<div class="blog_post_image"><img src="${board.wodImage}" alt=""></div>
 							<div class="blog_post_content text-center">
-								<div class="blog_post_title"><a href="#">1강</a></div>
+								<div class="blog_post_title"><a href="#">"${board.title}"</a></div>
 								
 							
 								<div class="blog_post_text">
-									<p>내용</p>
+									<p>${board.content}</p>
 								</div>
-								<div class="button blog_post_button"><a href="#">상세보기</a></div>
+								<div class="button blog_post_button"><a href="/crossfit/board?cmd=detail&id=${board.id}">상세보기</a></div>
 							</div>
 						</div>
 					</div>
@@ -53,7 +53,7 @@
 			</div>			
 		</div>
 
-	
+	</c:forEach>
 		<!-- Page Nav -->
 		<div class="page_nav_container">
 			<div class="container">
@@ -71,4 +71,15 @@
 			</div>		
 		</div>
 	</div>
+	
+ 
+    <c:if test="${sessionScope.admin}">
+  <div class="row">
+    <div class="col text-center">
+	<button type="submit" class="btn btn-primary">동영상 등록</button>
+	 </div>
+  </div>
+  <br><br>
+   </c:if>
+
 	<%@ include file="include/footer.jsp"%>	

@@ -16,6 +16,8 @@
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.3.4/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+ <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 </head>
 <body>
 
@@ -39,7 +41,7 @@
 					<li class="active"><a href="index.jsp">Home</a></li>
 					<li><a href="about.jsp">About us</a></li>
 					<li><a href="classes.jsp">Classes</a></li>
-					<li><a href="/crossfit/board?cmd=">WOD</a></li>
+					<li><a href="/crossfit/board?cmd=wod">WOD</a></li>
 					<li><a href="contact.jsp">Contact</a></li>
 					<li><a href="join.jsp">회원가입</a></li>
 					<li><a href="login.jsp">로그인</a></li>
@@ -49,7 +51,7 @@
 				    <li class="active"><a href="index.jsp">Home</a></li>
 					<li><a href="about.jsp">About us</a></li>
 					<li><a href="classes.jsp">Classes</a></li>
-					<li><a href="wod.jsp">WOD</a></li>
+					<li><a href="/crossfit/board?cmd=wod">WOD</a></li>
 					<li><a href="contact.jsp">Contact</a></li>
 					<li><a href="/crossfit/user?cmd=update">회원정보</a></li>
 					<li><a href="/crossfit/user?cmd=logout">로그아웃</a></li>
@@ -111,3 +113,4 @@
 <script src="plugins/progressbar/progressbar.min.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="js/custom.js"></script>
+

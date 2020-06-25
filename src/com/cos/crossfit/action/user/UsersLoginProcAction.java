@@ -31,9 +31,14 @@ public class UsersLoginProcAction implements Action {
 
 		if (user != null) {
 			HttpSession session = request.getSession();
-
+			
+			if (user.getUserRole().equals("ADMIN")) {
+				session.setAttribute("admin", true);
+			}
+   
+			
 			session.setAttribute("principal", user);
-
+      
 			if (request.getParameter("remember") != null) {
 				Cookie cookie = new Cookie("remember", user.getUsername());
 				cookie.setHttpOnly(true);

@@ -16,19 +16,24 @@ import com.cos.crossfit.repository.BoardRepository;
 public class BoardWodHomeAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		int page = Integer.parseInt(request.getParameter("page"));
+		String pageStr = request.getParameter("page");
+		int page;
+		if (pageStr == null) {
+			page = 0;
+		} else {
+			page = Integer.parseInt(pageStr);
+		}
 
 		BoardRepository boardRepository = BoardRepository.getInstance();
 
 		List<Board> boards = boardRepository.findAll(page);
 		request.setAttribute("boards", boards);
-
+		System.out.println("BoardWodHomeAction : boards :" + boards);
 		HttpSession session = request.getSession();
 		session.setAttribute("backPage", page);
 		session.setAttribute("backKeyword", null);
 
-		RequestDispatcher dis = request.getRequestDispatcher("/crossfit/wod.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("wod.jsp");
 		dis.forward(request, response);
 	}
 }
