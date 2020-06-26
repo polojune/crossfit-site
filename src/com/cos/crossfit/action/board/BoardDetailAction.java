@@ -30,7 +30,7 @@ public class BoardDetailAction implements Action {
         
         if(boardDetail != null) {
                 String content = boardDetail.getContent();
-                content = HtmlParser.getContentToutube(content); 
+                content = HtmlParser.getContentYoutube(content); 
                 boardDetail.setContent(content);
                 
                 request.setAttribute("boardDetail", boardDetail);

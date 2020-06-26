@@ -17,7 +17,7 @@
 				<div class="row">
 					<div class="col">
 						<div class="home_content text-center">
-							<div class="home_title">Blog</div>
+							<div class="home_title">wod</div>
 						</div>
 					</div>
 				</div>
@@ -61,9 +61,9 @@
 					<div class="col">
 						<div class="page_nav">
 							<ul class="d-flex flex-row align-items-start justify-content-center">
-								<li class="active"><a href="#">01.</a></li>
-								<li><a href="#">02.</a></li>
-								<li><a href="#">03.</a></li>
+								<li class="active"><a href="#">Prev</a></li>
+								<li><a href="#">Next</a></li>
+								
 							</ul>
 						</div>
 					</div>
@@ -76,7 +76,7 @@
     <c:if test="${sessionScope.admin}">
   <div class="row">
     <div class="col text-center">
-	<button type="submit" class="btn btn-primary">동영상 등록</button>
+	<a href="write.jsp"  class="btn btn-primary">동영상 등록</a>
 	 </div>
   </div>
   <br><br>

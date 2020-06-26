@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.cos.crossfit.action.Action;
 import com.cos.crossfit.model.Board;
 import com.cos.crossfit.repository.BoardRepository;
+import com.cos.crossfit.util.HtmlParser;
 
 public class BoardWodHomeAction implements Action {
 	@Override
@@ -27,6 +28,15 @@ public class BoardWodHomeAction implements Action {
 		BoardRepository boardRepository = BoardRepository.getInstance();
 
 		List<Board> boards = boardRepository.findAll(page);
+		
+		// 본문 짧게 가공하기/		
+		for (Board board : boards) {
+			String preview = HtmlParser.getContentPreview(board.getContent());
+		board.setContent(preview);
+
+		}
+
+		
 		request.setAttribute("boards", boards);
 		System.out.println("BoardWodHomeAction : boards :" + boards);
 		HttpSession session = request.getSession();

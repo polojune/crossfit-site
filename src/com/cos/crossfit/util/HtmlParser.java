@@ -7,7 +7,7 @@ import org.jsoup.select.Elements;
 
 public class HtmlParser {
 
-	public static String getContentToutube(String content) {
+	public static String getContentYoutube(String content) {
 		Document doc = Jsoup.parse(content);
 		Elements aTags = doc.select("a");
 

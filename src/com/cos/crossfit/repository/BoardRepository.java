@@ -25,6 +25,59 @@ public class BoardRepository {
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
     
+	public int update(Board board) {
+		final String SQL = "UPDATE board SET title = ?, wodImage = ?, content = ? WHERE id = ?";
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			// 물음표 완성하기
+            pstmt.setString(1, board.getTitle());
+            pstmt.setString(2, board.getWodImage());
+            pstmt.setString(3, board.getContent());
+            pstmt.setInt(4, board.getId());
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(TAG + "update : " + e.getMessage());
+		} finally {
+			DBConn.close(conn, pstmt);
+
+		}
+		return -1;
+	}
+	
+public Board findById(int id) {
+		
+		final String SQL = "SELECT * FROM board WHERE id = ? ";
+		Board board = null;
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			// 물음표 완성하기
+			pstmt.setInt(1, id);
+		
+			rs = pstmt.executeQuery();
+			if(rs.next()) { 
+			 board = Board.builder()
+					 .id(rs.getInt("id"))
+					 .userId(rs.getInt("userId"))
+					 .title(rs.getString("title"))
+					 .content(rs.getString("content"))
+					 .wodImage(rs.getString("wodImage"))
+					 .createDate(rs.getTimestamp("createDate"))
+					 .build();
+			  }
+			return board;
+			
+			} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(TAG + "findById(id) : " + e.getMessage());
+		}finally {
+			DBConn.close(conn, pstmt);
+		}
+		return null;
+	}
+	
 	
 	public int save(Board board) {
 		final String SQL = "INSERT INTO board(id,wodImage,title,content,createDate) VALUES(BOARD_SEQ.NEXTVAL, ?,?,?,SYSDATE)";

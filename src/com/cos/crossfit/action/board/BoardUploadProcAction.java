@@ -31,7 +31,8 @@ public class BoardUploadProcAction implements Action{
 			System.out.println("fileName:" + fileName);
 			String title = multi.getParameter("title"); 
 			String content = multi.getParameter("content");
-			
+			System.out.println("BoardUploadProcAction : title"+title);
+			System.out.println("BoardUploadProcAction : content"+content);
         	wodImage = contextPath+"/images/" + fileName; 
         	
 //        	HttpSession session = request.getSession();
@@ -51,7 +52,7 @@ public class BoardUploadProcAction implements Action{
         		
         	
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
     }
 }

@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.cos.crossfit.action.Action;
 import com.cos.crossfit.action.board.BoardWodHomeAction;
 import com.cos.crossfit.action.board.BoardDetailAction;
+import com.cos.crossfit.action.board.BoardUpdateAction;
+import com.cos.crossfit.action.board.BoardUpdateProcAction;
 import com.cos.crossfit.action.board.BoardUploadProcAction;
 
 @WebServlet("/board")
@@ -53,6 +55,12 @@ public class BoardController extends HttpServlet {
 	   }else if(cmd.equals("detail")) {
 		    
 		   return new BoardDetailAction();
+	   }else if(cmd.equals("update")) {
+		    
+		   return new BoardUpdateAction();
+	   }else if(cmd.equals("updateProc")) {
+		    
+		   return new BoardUpdateProcAction();
 	   }
 	   return null;  
   }

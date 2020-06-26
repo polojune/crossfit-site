@@ -4,6 +4,7 @@
 
 
 
+
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -15,20 +16,20 @@
 
 <br><br><br><br><br><br>
 
-<form action="/crossfit/board?cmd=UploadProc" method="POST" enctype="multipart/form-data">
-  
+<form action="/crossfit/board?cmd=updateProc" method="POST" >
+     <input type="hidden" value="${board.id}" name="id"/>
           <h1>게시판</h1>
 	<div class="form-group">
-		<label for="comment">Title:</label> <input type="text" class="form-control" placeholder="title" id="title" name="title" required>
+		<label for="comment">Title:</label> <input type="text" value="${board.title}" class="form-control" placeholder="title" id="title" name="title" required>
 	</div>
-    
- 
+  
+   
 	<div class="form-group">
 		<label for="content">Content:</label>
-		<textarea id="summernote" class="form-control" rows="5" id="content" name="content" required></textarea>
+		<textarea id="summernote" class="form-control" rows="5" id="content" name="content" required>${board.content}</textarea>
 	</div>
 
-	<button type="submit" class="btn btn-primary">글쓰기 등록</button>
+	<button type="submit" class="btn btn-primary">수정 </button>
 </form>
 </div>
 
@@ -39,6 +40,5 @@
           height: 300
       });
   });
-</script>
-<br>
-<%@ include file="/include/footer.jsp"%>   
+</script>  
+  
