@@ -2,6 +2,7 @@ package com.cos.crossfit.action.board;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +12,7 @@ import com.cos.crossfit.action.Action;
 import com.cos.crossfit.model.Board;
 import com.cos.crossfit.model.Users;
 import com.cos.crossfit.repository.BoardRepository;
+import com.cos.crossfit.util.Script;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -49,6 +51,16 @@ public class BoardUploadProcAction implements Action{
         	int result = boardRepository.save(board);
         	System.out.println("BoardUploadAction:result:"+ result);
             
+        	if(result ==1) {
+        		HttpSession session = request.getSession();
+        		int backPage = (Integer)session.getAttribute("backPage");
+        		
+        		RequestDispatcher dis = request.getRequestDispatcher("/board?cmd=wod&page=" + backPage); 
+        	    dis.forward(request, response);
+        	    
+        	}else {
+        		  Script.back("업로드실패", response);
+        	}
         		
         	
 		} catch (Exception e) {

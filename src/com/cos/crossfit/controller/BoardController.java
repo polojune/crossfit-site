@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cos.crossfit.action.Action;
 import com.cos.crossfit.action.board.BoardWodHomeAction;
+import com.cos.crossfit.action.board.BoardDeleteAction;
 import com.cos.crossfit.action.board.BoardDetailAction;
 import com.cos.crossfit.action.board.BoardUpdateAction;
 import com.cos.crossfit.action.board.BoardUpdateProcAction;
@@ -61,6 +62,9 @@ public class BoardController extends HttpServlet {
 	   }else if(cmd.equals("updateProc")) {
 		    
 		   return new BoardUpdateProcAction();
+	   }else if(cmd.equals("delete")) {
+		    
+		   return new BoardDeleteAction();
 	   }
 	   return null;  
   }

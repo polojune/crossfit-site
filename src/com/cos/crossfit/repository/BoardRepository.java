@@ -25,6 +25,48 @@ public class BoardRepository {
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
     
+	public int deleteById(int id) {
+		System.out.println("BoardRepository : id : "+id);
+		final String SQL = "DELETE FROM board WHERE id = ?";
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			// 물음표 완성하기
+			pstmt.setInt(1, id);
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(TAG + "deleteById : " + e.getMessage());
+		} finally {
+			DBConn.close(conn, pstmt);
+
+		}
+		return -1;
+	}
+   
+	
+	public int count() {
+		final String SQL = "SELECT count(*) FROM board";
+
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(TAG+"count : "+e.getMessage());
+		} finally {
+			DBConn.close(conn, pstmt, rs);
+		}
+
+		return -1;
+	}
+	
+	
 	public int update(Board board) {
 		final String SQL = "UPDATE board SET title = ?, wodImage = ?, content = ? WHERE id = ?";
 		try {
@@ -134,9 +176,10 @@ public Board findById(int id) {
 	
 	public List<Board> findAll(int page){ 
 		StringBuilder sb = new StringBuilder(); 
+		//sb.append("SELECT /*+ INDEX_DESC(BOARD SYS_C007932)*/id,");
 		sb.append("SELECT id, ");
 		sb.append("userId, title, content, wodImage, readCount, createDate ");
-		sb.append("FROM board ");
+		sb.append("FROM board ORDER BY createDate DESC ");
 		sb.append("OFFSET ? ROWS FETCH NEXT 3 ROWS ONLY");
 		
 		final String SQL = sb.toString();

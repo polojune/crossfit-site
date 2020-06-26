@@ -54,26 +54,11 @@
 		</div>
 
 	</c:forEach>
-		<!-- Page Nav -->
-		<div class="page_nav_container">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div class="page_nav">
-							<ul class="d-flex flex-row align-items-start justify-content-center">
-								<li class="active"><a href="#">Prev</a></li>
-								<li><a href="#">Next</a></li>
-								
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>		
-		</div>
-	</div>
-	
+
+
+<%@ include file="include/paging.jsp"%>	
  
-    <c:if test="${sessionScope.admin}">
+    <c:if test="${not empty sessionScope.admin}">
   <div class="row">
     <div class="col text-center">
 	<a href="write.jsp"  class="btn btn-primary">동영상 등록</a>

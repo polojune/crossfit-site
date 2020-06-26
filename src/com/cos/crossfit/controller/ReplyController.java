@@ -7,8 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cos.crossfit.action.Action;
+import com.cos.crossfit.action.reply.ReplyDeleteProcAction;
+import com.cos.crossfit.action.reply.ReplyWriteProcAction;
+
 @WebServlet("/reply")
 public class ReplyController extends HttpServlet {
+	private final static String TAG = "ReplyController";
 	private static final long serialVersionUID = 1L;
 
 	public ReplyController() {
@@ -28,7 +33,24 @@ public class ReplyController extends HttpServlet {
 
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		  String cmd = request.getParameter("cmd");
+		  System.out.println(TAG + "router : " + cmd);
+		  Action action = router(cmd);
+		  action.execute(request, response);
+		
 	}
+	 public Action router(String cmd) {
+		   if(cmd.equals("writeProc")) {
+			    //회원 가입 페이지로 이동
+		    return new ReplyWriteProcAction();   
+		   
+		   }if(cmd.equals("deleteProc")) {
+			    //회원 가입 페이지로 이동
+		    return new ReplyDeleteProcAction();   
+		   
+		   }	  	   
+		   return null;
+	    
+	   } 
 
 }

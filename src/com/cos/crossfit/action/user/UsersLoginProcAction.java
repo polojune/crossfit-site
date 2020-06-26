@@ -33,7 +33,7 @@ public class UsersLoginProcAction implements Action {
 			HttpSession session = request.getSession();
 			
 			if (user.getUserRole().equals("ADMIN")) {
-				session.setAttribute("admin", true);
+				session.setAttribute("admin", user);
 			}
    
 			
