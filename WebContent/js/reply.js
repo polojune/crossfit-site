@@ -83,7 +83,7 @@ function makeReplyItem(replyDto,userId){
 	//휴지통 추가 시작 
 	replyItem += `<div class="m-2">`;
     if(replyDto.reply.userId == userId){
-	replyItem += `<i onclick="replyDelete(${replyDto.reply.id})" style="font-soze:30px; cursor:pointer" class="fas fa-trash-alt">delete</i>`;
+	replyItem += `<i onclick="replyDelete(${replyDto.reply.id})" style="font-soze:30px; cursor:pointer" class="fas fa-trash"></i>`;
     } 
 	replyItem += `</div>`;
 	//휴지통 추가 끝

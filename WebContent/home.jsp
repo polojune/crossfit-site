@@ -35,7 +35,7 @@
 
 				<!-- Slide -->
 				<div class="slide">
-					<div class="background_image" style="background-image:url(images/rich.jpg)"></div>
+					<div class="background_image" style="background-image:url(images/c.jpg)"></div>
 					<div class="slide_container">
 						<div class="container">
 							<div class="row">

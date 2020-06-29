@@ -62,7 +62,7 @@
 				  </c:otherwise>	
 			  </c:choose>		
 				</ul>
-			
+				
 			</nav>
 			<div class="header_right top_align d-flex flex-row align-items-center justify-content-start">
 				<div class="search_container">

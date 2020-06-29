@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/include/header.jsp"%>
-	
+
+ 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
 
 <br><br><br><br><br><br><br>
     	<div class="blog_post blog_post_light">
@@ -57,7 +62,7 @@
 		   					            </div>
 		   					         <div class="m-2">
 									      <c:if test="${replyDto.reply.userId eq sessionScope.principal.id}">
-									         <i onclick="replyDelete(${replyDto.reply.id})" style="font-soze:30px; cursor:pointer" class="fas fa-trash-alt">delete</i>
+									         <i onclick="replyDelete(${replyDto.reply.id})" style="font-size:20px;color:black; cursor:pointer" class="fas fa-trash" ></i>
 									      </c:if>
 									 </div>
 		   					            
