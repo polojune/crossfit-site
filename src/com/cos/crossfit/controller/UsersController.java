@@ -14,6 +14,7 @@ import com.cos.crossfit.action.user.UsersLoginAction;
 import com.cos.crossfit.action.user.UsersLoginProcAction;
 import com.cos.crossfit.action.user.UsersLogoutAction;
 import com.cos.crossfit.action.user.UsersSendMailAction;
+import com.cos.crossfit.action.user.UsersSendMessageAction;
 import com.cos.crossfit.action.user.UsersUpdateAction;
 import com.cos.crossfit.action.user.UsersUpdateProcAction;
 import com.cos.crossfit.action.user.UsersUsernameCheckAction;
@@ -71,6 +72,9 @@ public class UsersController extends HttpServlet {
 		}else if (cmd.equals("sendMail")) {
 			// 회원 가입 페이지로 이동
 			return new UsersSendMailAction();
+		}else if (cmd.equals("sendMessage")) {
+			// 회원 가입 페이지로 이동
+			return new UsersSendMessageAction();
 		}
 		return null;
 	}

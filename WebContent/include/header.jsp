@@ -25,8 +25,7 @@
 <div class="super_container">
 	
 	<!-- Header -->
-
-	<header class="header">
+      <header class="header">
 		<div class="header_content d-flex flex-row align-items-center justify-content-center">
 
 			<!-- Logo -->
@@ -35,8 +34,11 @@
 				<div>crossfit <span>x</span></div>
 				<div>the next level</div>
 			</div>
-			<nav class="main_nav">
+			<nav class="main_nav navbar">
+				
+				
 				<ul class="d-flex flex-row align-items-center justify-content-start">
+	  
 				<c:choose>
 				   <c:when test="${empty sessionScope.principal}">
 					<li class="active"><a href="index.jsp">Home</a></li>
@@ -60,6 +62,7 @@
 				  </c:otherwise>	
 			  </c:choose>		
 				</ul>
+			
 			</nav>
 			<div class="header_right top_align d-flex flex-row align-items-center justify-content-start">
 				<div class="search_container">
@@ -86,7 +89,7 @@
 
 	<div class="menu">
 		<div class="menu_content d-flex flex-column align-items-center justify-content-start">
-			<nav class="menu_nav">
+			<nav class="menu_nav navbar navbar-expand-md">
 				<ul class="d-flex flex-column align-items-center justify-content-start">
 					<li><a href="index.jsp">Home</a></li>
 					<li><a href="about.jsp">About us</a></li>

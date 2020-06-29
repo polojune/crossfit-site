@@ -32,52 +32,60 @@
 			<div class="row">
 				
 				<!-- Contact Content -->
-				<div class="col-lg-6 contact_col">
+				<div class="col-lg-4 contact_col">
 					<div class="contact_content">
 						<div class="contact_content_title">crossfit <span>x</span></div>
 						<div class="contact_text">
 							
 						</div>
 						<div class="contact_info">
-							<div class="contact_title"><h1>Information</h1></div>
+							<div class="contact_title"><h1>information</h1></div>
 							<ul>
 								<li>Main Str, no 23, New York</li>
-								<li>+546 990221 123</li>
-								<li>hosting@contact.com</li>
+								<li>010-2725-8574</li>
+								<li>polo_june@naver.com</li>
 							</ul>
 						</div>
 					</div>
 				</div>
 
 				<!-- Contact Form -->
-				<div class="col-lg-6 contact_col">
+				<div class="col-lg-4 contact_col">
 					<div class="contact_form_container">
-						<div class="contact_title"><h1>Get in touch</h1></div>
+						<div class="contact_title"><h1>메일보내기</h1></div>
 						<form action="/crossfit/user?cmd=sendMail" method="post" class="contact_form" id="contact_form">
 							<input type="text" class="contact_form_input" id="name" placeholder="Name" name="name" required="required">
 							<input type="email" class="contact_form_input" id="email" placeholder="E-mail" name="email" required="required">
 							<input type="text" class="contact_form_input" id="subject" placeholder="Subject" name="subject">
 							<textarea class="contact_form_input contact_form_textarea" id="message" placeholder="Message" name="message" required="required"></textarea>
-							<button class="contact_form_button button"><span>메일보내기</span></button>
+							<button class="contact_form_button button"><span>전송하기</span></button>
+					        
 						</form>
-					</div>
+						
+				     </div>
 				</div>
+				
+				<div class="col-lg-4 contact_col">
+					<div class="contact_form_container">
+					    <div class="contact_title"><h1>문자보내기</h1></div>
+				         <form action="/crossfit/user?cmd=sendMessage" method="post" class="contact_form" id="contact_form">
+					     
+						    <input type="text" class="contact_form_input" id="number" placeholder="Number: 010-2725-8574" name="number" required readonly>				
+						
+						  <textarea class="contact_form_input contact_form_textarea" id="message" placeholder="Message" name="message" required="required"></textarea>
+							 <button class="contact_form_button button"><span>전송하기</span></button>					        
+						</form>														
+					</div>
+				 </div> 
 			</div>
 		</div>
 	</div>
+
+
+
+
 
 	<!-- Google Map -->
 
-	<div class="contact_map_container">
-		<div class="map">
-			<div id="google_map" class="google_map">
-				<div class="map_container">
-					<div id="map"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
 <script src="js/contact.js"></script>	
 <%@ include file="include/footer.jsp"%>    
