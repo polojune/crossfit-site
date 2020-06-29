@@ -13,6 +13,7 @@ import com.cos.crossfit.action.user.UsersJoinProcAction;
 import com.cos.crossfit.action.user.UsersLoginAction;
 import com.cos.crossfit.action.user.UsersLoginProcAction;
 import com.cos.crossfit.action.user.UsersLogoutAction;
+import com.cos.crossfit.action.user.UsersSendMailAction;
 import com.cos.crossfit.action.user.UsersUpdateAction;
 import com.cos.crossfit.action.user.UsersUpdateProcAction;
 import com.cos.crossfit.action.user.UsersUsernameCheckAction;
@@ -67,6 +68,9 @@ public class UsersController extends HttpServlet {
 		}else if (cmd.equals("updateProc")) {
 			// 회원 가입 페이지로 이동
 			return new UsersUpdateProcAction();
+		}else if (cmd.equals("sendMail")) {
+			// 회원 가입 페이지로 이동
+			return new UsersSendMailAction();
 		}
 		return null;
 	}

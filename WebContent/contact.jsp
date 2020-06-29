@@ -53,12 +53,12 @@
 				<div class="col-lg-6 contact_col">
 					<div class="contact_form_container">
 						<div class="contact_title"><h1>Get in touch</h1></div>
-						<form action="#" class="contact_form" id="contact_form">
-							<input type="text" class="contact_form_input" placeholder="Name" required="required">
-							<input type="email" class="contact_form_input" placeholder="E-mail" required="required">
-							<input type="text" class="contact_form_input" placeholder="Subject">
-							<textarea class="contact_form_input contact_form_textarea" placeholder="Message" required="required"></textarea>
-							<button class="contact_form_button button"><span>Send</span></button>
+						<form action="/crossfit/user?cmd=sendMail" method="post" class="contact_form" id="contact_form">
+							<input type="text" class="contact_form_input" id="name" placeholder="Name" name="name" required="required">
+							<input type="email" class="contact_form_input" id="email" placeholder="E-mail" name="email" required="required">
+							<input type="text" class="contact_form_input" id="subject" placeholder="Subject" name="subject">
+							<textarea class="contact_form_input contact_form_textarea" id="message" placeholder="Message" name="message" required="required"></textarea>
+							<button class="contact_form_button button"><span>메일보내기</span></button>
 						</form>
 					</div>
 				</div>
