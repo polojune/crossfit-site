@@ -11,6 +11,7 @@ import com.cos.crossfit.action.Action;
 import com.cos.crossfit.action.board.BoardWodHomeAction;
 import com.cos.crossfit.action.inquire.InquireAction;
 import com.cos.crossfit.action.inquire.InquireSaveFormAction;
+import com.cos.crossfit.action.inquire.InquireSaveProcAction;
 import com.cos.crossfit.action.board.BoardDeleteAction;
 import com.cos.crossfit.action.board.BoardDetailAction;
 import com.cos.crossfit.action.board.BoardSearchAction;
@@ -20,7 +21,7 @@ import com.cos.crossfit.action.board.BoardUploadProcAction;
 
 @WebServlet("/inquire")
 public class InquireController extends HttpServlet {
-	private final static String TAG = "BoardController";
+	private final static String TAG = "InquireController";
 	private static final long serialVersionUID = 1L;
 
 	public InquireController() {
@@ -54,6 +55,8 @@ public class InquireController extends HttpServlet {
 		   return new InquireAction();	  
 	   }else if (cmd.equals("saveForm")) {
 			return new InquireSaveFormAction();		    	
+	   }else if (cmd.equals("saveProc")) {
+			return new InquireSaveProcAction();		    	
 	   }
 		return null;  
   }

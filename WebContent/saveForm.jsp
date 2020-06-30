@@ -3,8 +3,8 @@
       <%@ include file="include/header.jsp"%> 
 <br><br><br><br><br><br><br><br>	    
         <div class="container">
-	<form action="" method="POST" enctype="multipart/form-data">
-  
+	<form action="/crossfit/inquire?cmd=saveProc" method="POST" >
+        <input type="hidden" value="${sessionScope.principal.id}" name="userId" />
          <h1>게시판</h1>
 	<div class="form-group">
 		<label for="comment">Title:</label> <input type="text" class="form-control" placeholder="title" id="title" name="title" required>

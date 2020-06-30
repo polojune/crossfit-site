@@ -27,6 +27,28 @@ public class InquireRepository {
 	private ResultSet rs = null;
     
 	
+	public int save(Inquire inquire) {
+		try {
+			String sql = "INSERT INTO inquire(id,userId,title,content,readCount,createDate) VALUES(inquire_seq.nextval, ?,?,?,?, sysdate)";
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, inquire.getUserId());
+			pstmt.setString(2, inquire.getTitle());
+			pstmt.setString(3, inquire.getContent());
+			pstmt.setInt(4, inquire.getReadCount());
+
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(TAG + "save : " + e.getMessage());
+		}finally {
+			DBConn.close(conn, pstmt);
+			
+		}
+		return -1;
+	}
+	
 	
 	public List<Inquire> list() {
 		try {
@@ -39,9 +61,8 @@ public class InquireRepository {
 			while (rs.next()) {
 				Inquire post = new Inquire();
 				post.setId(rs.getInt("id"));
-				post.setUserId(rs.getInt("userId"));
+				post.setUserId(rs.getInt("userId"));				
 				post.setTitle(rs.getString("title"));
-				post.setUserName(rs.getString("userName"));
 				post.setContent(rs.getString("content"));
 				post.setReadCount(rs.getInt("readCount"));
 				post.setCreateDate(rs.getTimestamp("createDate"));
@@ -52,6 +73,8 @@ public class InquireRepository {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			DBConn.close(conn, pstmt,rs);
 		}
 		return null;
 	}
@@ -223,27 +246,7 @@ public Board findById(int id) {
 		return null;
 	}
 	
-	
-	public int save(Board board) {
-		final String SQL = "INSERT INTO board(id,wodImage,title,content,createDate) VALUES(BOARD_SEQ.NEXTVAL, ?,?,?,SYSDATE)";
 
-		try {
-			conn = DBConn.getConnection();
-			pstmt = conn.prepareStatement(SQL);
-
-			pstmt.setString(1, board.getWodImage());
-			pstmt.setString(2, board.getTitle());
-			pstmt.setString(3, board.getContent());
-	
-
-			return pstmt.executeUpdate();
-		} catch (Exception e) {
-			System.out.println(TAG + "save : " + e.getMessage());
-		} finally {
-			DBConn.close(conn, pstmt);
-		}
-		return -1;
-	}
 	
 	public Board detail(int id) {
 		

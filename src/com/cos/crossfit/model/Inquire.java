@@ -14,7 +14,6 @@ public class Inquire {
 	  private int id; 
       private int userId; 
       private String title; 
-      private String userName;
       private String content; 
       private int readCount; 
       private Timestamp createDate; 

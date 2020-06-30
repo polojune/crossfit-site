@@ -41,12 +41,8 @@
 			</section>
 		    <hr/>
 			<a href="/crossfit/inquire?cmd=saveForm">글쓰기</a>			
-		</div>			
-		
-			 
-
-				
-									
+		</div>							 
+													
 					
 
 <br><br><br><br><br><br><br><br>
