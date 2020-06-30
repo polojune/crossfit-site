@@ -85,7 +85,14 @@
 
 
 
-	<!-- Google Map -->
+	<!-- Kakao Map -->
+  
+  	<div class="container">
+   		<div id="map" style="width:500px;height:500px; width:100%"></div><br/><br/><br/>
+	</div>
 
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9dcf857c3ceea1c2374ce5a30ada593d"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4584fffce1f6805d84fb7ce6a9906c99&libraries=services,clusterer,drawing"></script>
+<script src="js/kakaomap.js"></script>
 <script src="js/contact.js"></script>	
 <%@ include file="include/footer.jsp"%>    

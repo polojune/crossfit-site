@@ -9,6 +9,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Crossfit template project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="styles/bootstrap-4.2.1/popper.js"></script>
+<script src="styles/bootstrap-4.2.1/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="plugins/OwlCarousel2-2.3.4/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/progressbar/progressbar.min.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="js/custom.js"></script>
 <link rel="stylesheet" type="text/css" href="styles/bootstrap-4.2.1/bootstrap.min.css">
 <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.3.4/owl.carousel.css">
@@ -34,9 +47,9 @@
 				<div>crossfit <span>x</span></div>
 				<div>the next level</div>
 			</div>
+			
 			<nav class="main_nav navbar">
-				
-				
+
 				<ul class="d-flex flex-row align-items-center justify-content-start">
 	  
 				<c:choose>
@@ -46,8 +59,10 @@
 					<li><a href="classes.jsp">Classes</a></li>
 					<li><a href="/crossfit/board?cmd=wod&page=0">WOD</a></li>
 					<li><a href="contact.jsp">Contact</a></li>
+					<li><a href="inquire.jsp">문의하기</a></li>
 					<li><a href="join.jsp">회원가입</a></li>
 					<li><a href="login.jsp">로그인</a></li>
+					
 				  </c:when>
 		
 				  <c:otherwise>
@@ -56,6 +71,7 @@
 					<li><a href="classes.jsp">Classes</a></li>
 					<li><a href="/crossfit/board?cmd=wod&page=0">WOD</a></li>
 					<li><a href="contact.jsp">Contact</a></li>
+					<li><a href="inquire.jsp">문의하기</a></li>
 					<li><a href="/crossfit/user?cmd=update">회원정보</a></li>
 					<li><a href="/crossfit/user?cmd=logout">로그아웃</a></li>
 				  
@@ -64,6 +80,7 @@
 				</ul>
 				
 			</nav>
+			
 			<div class="header_right top_align d-flex flex-row align-items-center justify-content-start">
 				<form class="form-inline d-flex justify-content-end" action="/crossfit/board">
 			        <input type="hidden" name="cmd" value="search" /> 
@@ -94,19 +111,6 @@
 		</div>
 	</div>
    </div>
-    
-  <script src="js/jquery-3.3.1.min.js"></script>
-<script src="styles/bootstrap-4.2.1/popper.js"></script>
-<script src="styles/bootstrap-4.2.1/bootstrap.min.js"></script>
-<script src="plugins/greensock/TweenMax.min.js"></script>
-<script src="plugins/greensock/TimelineMax.min.js"></script>
-<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
-<script src="plugins/greensock/animation.gsap.min.js"></script>
-<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
-<script src="plugins/OwlCarousel2-2.3.4/owl.carousel.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="plugins/progressbar/progressbar.min.js"></script>
-<script src="plugins/parallax-js-master/parallax.min.js"></script>
-<script src="js/custom.js"></script>
+
 
 	

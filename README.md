@@ -49,6 +49,27 @@ CREATE TABLE reply(
     foreign key (boardId) references board (id) on delete cascade
 );
 
+CREATE TABLE inquire(
+	id number primary key,
+    userId number,
+    title varchar2(100) not null,
+    content clob,
+    readCount number default 0,
+    createDate timestamp,
+    foreign key (userId) references users (id)
+);
+
+CREATE TABLE inquirereply(
+	id number primary key,
+    userId number,
+    inquireId number,
+    content varchar2(300) not null,
+    createDate timestamp,
+    foreign key (userId) references users (id) on delete set null,
+    foreign key (inquireId) references inquire (id) on delete cascade
+);
+
+
 
 ````
 
@@ -65,4 +86,13 @@ create SEQUENCE board_seq
 create SEQUENCE reply_seq
   start with 1 
   increment by 1;
+
+create SEQUENCE inquire_seq
+  start with 1 
+  increment by 1; 
+
+create SEQUENCE inquirereply_seq
+  start with 1 
+  increment by 1;   
+
 ````  
