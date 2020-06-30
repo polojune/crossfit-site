@@ -17,10 +17,10 @@ public class InquireAction implements Action {
 @Override
 public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-	
+	  
 	InquireRepository inquireRepository = InquireRepository.getInstance();
-	List<Inquire> posts = inquireRepository.list();
-	request.setAttribute("posts", posts);
+	  List<Inquire> posts = inquireRepository.list();
+	  request.setAttribute("posts", posts);
     
 	
 	RequestDispatcher dis = request.getRequestDispatcher("inquire.jsp");
