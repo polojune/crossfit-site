@@ -44,7 +44,7 @@ function replyWrite(boardId, userId) {
 	}).done(function(result) {
 		// 정상 응답
 		// 1. reply__list를 찾아서 내부를 비우기
-		alert(result);
+		//alert(result);
 		if (result == -1 || result == 0) {
               alert("댓글 작성 실패");
 			
@@ -83,7 +83,7 @@ function makeReplyItem(replyDto,userId){
 	//휴지통 추가 시작 
 	replyItem += `<div class="m-2">`;
     if(replyDto.reply.userId == userId){
-	replyItem += `<i onclick="replyDelete(${replyDto.reply.id})" style="font-soze:30px; cursor:pointer" class="fas fa-trash"></i>`;
+	replyItem += `<i onclick="replyDelete(${replyDto.reply.id})" style="font-size:20px;color:black; cursor:pointer" class="fas fa-trash"></i>`;
     } 
 	replyItem += `</div>`;
 	//휴지통 추가 끝

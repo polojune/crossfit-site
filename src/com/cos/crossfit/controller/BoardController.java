@@ -11,6 +11,7 @@ import com.cos.crossfit.action.Action;
 import com.cos.crossfit.action.board.BoardWodHomeAction;
 import com.cos.crossfit.action.board.BoardDeleteAction;
 import com.cos.crossfit.action.board.BoardDetailAction;
+import com.cos.crossfit.action.board.BoardSearchAction;
 import com.cos.crossfit.action.board.BoardUpdateAction;
 import com.cos.crossfit.action.board.BoardUpdateProcAction;
 import com.cos.crossfit.action.board.BoardUploadProcAction;
@@ -45,7 +46,7 @@ public class BoardController extends HttpServlet {
 	}
 	
   public Action router(String cmd) {
-	 
+	   System.out.println(TAG+"cmd: "+ cmd);
 	  if(cmd.equals("wod")) {
 		    
 		   return new BoardWodHomeAction();
@@ -65,6 +66,9 @@ public class BoardController extends HttpServlet {
 	   }else if(cmd.equals("delete")) {
 		    
 		   return new BoardDeleteAction();
+	   }else if(cmd.equals("search")) {
+		    
+		   return new BoardSearchAction();
 	   }
 	   return null;  
   }

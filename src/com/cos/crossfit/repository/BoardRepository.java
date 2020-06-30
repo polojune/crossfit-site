@@ -25,6 +25,78 @@ public class BoardRepository {
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
     
+	
+	
+	public int count(String keyword) {
+		final String SQL = "SELECT count(*) FROM board WHERE title LIKE ? OR content LIKE ?";
+
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, "%"+keyword+"%");
+			pstmt.setString(2, "%"+keyword+"%");
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(TAG+"count(keyword) : "+e.getMessage());
+		} finally {
+			DBConn.close(conn, pstmt, rs);
+		}
+
+		return -1;
+	}
+	
+	
+	
+	public List<Board> findAll(int page, String keyword) {
+		StringBuilder sb = new StringBuilder();
+		//sb.append("SELECT /*+ INDEX_DESC(BOARD SYS_C007932)*/id,");
+		sb.append("SELECT id, ");
+		sb.append("userId, title, content, wodImage, readCount, createDate ");
+		sb.append("FROM board ");
+		sb.append("WHERE title like ? OR content like ? ");
+		sb.append("OFFSET ? ROWS FETCH NEXT 3 ROWS ONLY");
+
+		final String SQL = sb.toString();
+		List<Board> boards = new ArrayList<>();
+
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, "%"+keyword+"%");
+			pstmt.setString(2, "%"+keyword+"%");
+			pstmt.setInt(3, page*3);
+			// while 돌려서 rs -> java오브젝트에 집어넣기
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Board board = new Board(
+						rs.getInt("id"),
+						rs.getInt("userId"),
+						rs.getString("title"),
+						rs.getString("content"),
+						rs.getString("wodImage"),
+						rs.getInt("readCount"),
+						rs.getTimestamp("createDate")
+				);
+				boards.add(board);
+			}
+
+			return boards;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(TAG+"findAll(page,keyword) : "+e.getMessage());
+		} finally {
+			DBConn.close(conn, pstmt, rs);
+		}
+
+		return null;
+	}
+	
+	
 	public int deleteById(int id) {
 		System.out.println("BoardRepository : id : "+id);
 		final String SQL = "DELETE FROM board WHERE id = ?";
