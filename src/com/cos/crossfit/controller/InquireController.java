@@ -9,9 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cos.crossfit.action.Action;
 import com.cos.crossfit.action.board.BoardWodHomeAction;
-import com.cos.crossfit.action.inquire.InquireAction;
+import com.cos.crossfit.action.inquire.InquireDeleteAction;
+import com.cos.crossfit.action.inquire.InquireDetailAction;
+import com.cos.crossfit.action.inquire.InquireHomeAction;
 import com.cos.crossfit.action.inquire.InquireSaveFormAction;
 import com.cos.crossfit.action.inquire.InquireSaveProcAction;
+import com.cos.crossfit.action.inquire.InquireUpdateAction;
+import com.cos.crossfit.action.inquire.InquireUpdateProcAction;
 import com.cos.crossfit.action.board.BoardDeleteAction;
 import com.cos.crossfit.action.board.BoardDetailAction;
 import com.cos.crossfit.action.board.BoardSearchAction;
@@ -50,13 +54,21 @@ public class InquireController extends HttpServlet {
 	
   public Action router(String cmd) {
 	   System.out.println(TAG+"cmd: "+ cmd);
-	  if(cmd.equals("inquire")) {
+	  if(cmd.equals("inquireHome")) {
 		    
-		   return new InquireAction();	  
+		   return new InquireHomeAction();	  
 	   }else if (cmd.equals("saveForm")) {
 			return new InquireSaveFormAction();		    	
 	   }else if (cmd.equals("saveProc")) {
 			return new InquireSaveProcAction();		    	
+	   }else if (cmd.equals("detail")) {
+			return new InquireDetailAction();		    	
+	   }else if (cmd.equals("update")) {
+			return new InquireUpdateAction();		    	
+	   }else if (cmd.equals("updateProc")) {
+			return new InquireUpdateProcAction();		    	
+	   }else if (cmd.equals("delete")) {
+			return new InquireDeleteAction();		    	
 	   }
 		return null;  
   }

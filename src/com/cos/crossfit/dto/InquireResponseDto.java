@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 @Builder
 
 public class InquireResponseDto {
-      private Inquire inquire; 
-      private String username;
+	private Inquire inquire;
+	private String username;
 }

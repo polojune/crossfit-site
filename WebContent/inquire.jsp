@@ -26,12 +26,12 @@
 						</thead>
 					
 				        <tbody>
-				         <c:forEach var="post" items="${post}">
+				         <c:forEach var="post" items="${posts}">
 							<tr>
-								<td>${post.id}</td>
-								<td><a href="/crossgit/inquire?cmd=detail&id=${post.id}">${post.title}</a></td>
-								<td>${post.userName}</td>
-								<td>${post.createDate}</td>
+								<td>${post.inquire.id}</td>
+								<td><a href="/crossfit/inquire?cmd=detail&id=${post.inquire.id}">${post.inquire.title}</a></td>
+								<td>${post.username}</td>
+								<td>${post.inquire.createDate}</td>
 							</tr>
 						   </c:forEach>	
 					    </tbody>

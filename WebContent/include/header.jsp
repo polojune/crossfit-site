@@ -59,7 +59,7 @@
 					<li><a href="classes.jsp">Classes</a></li>
 					<li><a href="/crossfit/board?cmd=wod&page=0">WOD</a></li>
 					<li><a href="contact.jsp">Contact</a></li>
-					<li><a href="inquire.jsp">문의하기</a></li>
+					<li><a href="/crossfit/inquire?cmd=inquireHome">문의하기</a></li>
 					<li><a href="join.jsp">회원가입</a></li>
 					<li><a href="login.jsp">로그인</a></li>
 					
@@ -71,7 +71,7 @@
 					<li><a href="classes.jsp">Classes</a></li>
 					<li><a href="/crossfit/board?cmd=wod&page=0">WOD</a></li>
 					<li><a href="contact.jsp">Contact</a></li>
-					<li><a href="inquire.jsp">문의하기</a></li>
+					<li><a href="/crossfit/inquire?cmd=inquireHome">문의하기</a></li>
 					<li><a href="/crossfit/user?cmd=update">회원정보</a></li>
 					<li><a href="/crossfit/user?cmd=logout">로그아웃</a></li>
 				  

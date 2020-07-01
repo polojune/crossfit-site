@@ -39,7 +39,7 @@ public class InquireSaveProcAction implements Action {
 		int result = inquireRepository.save(inquire);
 
 		if (result == 1) {
-			Script.href("글쓰기성공", "inquire.jsp", response);
+			Script.href("글쓰기성공", "/crossfit/inquire?cmd=inquireHome", response);
 		} else {
 			Script.back("글쓰기 실패", response);
 		}
