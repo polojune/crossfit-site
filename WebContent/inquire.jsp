@@ -40,14 +40,16 @@
 				</form>
 			</section>
 		    <hr/>
-			<a href="/crossfit/inquire?cmd=saveForm">글쓰기</a>			
+		 <c:if test="${not empty sessionScope.principal}">   
+			<a href="/crossfit/inquire?cmd=saveForm" class="btn btn-primary" style="float: right">글쓰기</a>		
+		 </c:if>
 		</div>							 
 													
 					
 
 <br><br><br><br><br><br><br><br>
-   <%@ include file="include/paging.jsp"%>	
-	<%@ include file="include/footer.jsp"%>
+ <%@ include file="include/paging.jsp"%>	
+<%@ include file="include/footer.jsp"%>
 
 
 

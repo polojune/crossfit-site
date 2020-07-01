@@ -1,6 +1,7 @@
 package com.cos.crossfit.action.inquire;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -36,22 +37,22 @@ public class InquireUpdateProcAction implements Action {
 			return;
 		}
 		int id = Integer.parseInt(request.getParameter("id"));
-		System.out.println("InquireUpdateProcAction: id :" +id);
+		//System.out.println("InquireUpdateProcAction: id :" +id);
 		String title = request.getParameter("title");
-		System.out.println("InquireUpdateProcAction: title :" +title);
+		//System.out.println("InquireUpdateProcAction: title :" +title);
 	  	String content = request.getParameter("content");
-		
+      
 	
 		   Inquire inquire = Inquire.builder() 
-				            .id(id)
+				            .id(id)				          
 				            .title(title)
 				            .content(content)
-				            .build();
+				  		    .build();
 		         
 		InquireRepository inquireRepository = InquireRepository.getInstance();
      
 		int result = inquireRepository.update(inquire);
-
+              System.out.println("InquireUpdateProcAction : " + result);
 		if (result == 1) {
 			Script.href("수정성공", "/crossfit/inquire?cmd=detail&id=" + id, response);
 		} else {

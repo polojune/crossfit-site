@@ -18,7 +18,13 @@ import com.cos.crossfit.repository.UsersRepository;
 public class InquireHomeAction implements Action {
 @Override
 public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	  String pageStr = request.getParameter("page");
+	  int page; 
+	  if(pageStr == null) { 
+		    page= 0; 
+	  }else {
+		  page = Integer.parseInt(pageStr);
+	  }
 	  
 	  //int userId = Integer.parseInt(request.getParameter("id"));
 //	  UsersRepository usersRepository = UsersRepository.getInstance();

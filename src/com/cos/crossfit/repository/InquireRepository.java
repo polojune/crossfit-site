@@ -76,7 +76,7 @@ public class InquireRepository {
 		sb.append("SELECT i.id, i.userId, i.title, i.content, i.readCount,i.createDate,u.username ");
 		sb.append("FROM inquire i INNER JOIN users u ");
 		sb.append("ON i.userid = u.id ");
-	    
+	    sb.append("ORDER BY createDate DESC");
 		final String SQL = sb.toString();
 		InquireResponseDto inquireDto = null;
 		
@@ -103,7 +103,7 @@ public class InquireRepository {
 		        
 		        posts.add(inquireDto);
 			}
-			System.out.println("posts:" + posts);
+			//System.out.println("posts:" + posts);
 			return posts;
 
 		} catch (Exception e) {
@@ -268,7 +268,8 @@ public class InquireRepository {
 	}
 
 	public int update(Inquire inquire) {
-		final String SQL = "UPDATE inquire SET  title = ?, content = ? WHERE id = ?";
+		 System.out.println("Inquire:update" + inquire);
+		final String SQL = "UPDATE inquire SET  title = ?, content = ?  WHERE id = ?";
 		try {
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(SQL);

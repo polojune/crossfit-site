@@ -42,7 +42,7 @@
        <a type="button" class="btn btn-success"  href="">댓글쓰기</a>                                                                                           
             <a type="button" class="btn btn-warning"  href="/crossfit/inquire?cmd=update&id=${inquireDetail.inquire.id}">수정하기</a>          
             <a type="button" class="btn btn-danger"  href="/crossfit/inquire?cmd=delete&id=${inquireDetail.inquire.id}">삭제하기</a>          
-  		    <a type="button" class="btn btn-primary"  href="">목록보기</a>          
+  		    <a type="button" class="btn btn-primary"  href="/crossfit/inquire?cmd=inquireHome">목록보기</a>          
             </td>
          </c:if>   
         </tr>    

@@ -10,7 +10,7 @@
          <h2 class="text-center">게시글 수정</h2><p>&nbsp;</p>
     <div class="table table-responsive">
       <form action="/crossfit/inquire?cmd=updateProc" method="post">
-        <input type="hidden" name="id" value="${principal.id}"/>
+        <input type="hidden" name="id" value="${inquireDto.inquire.id}"/>
        <table class="table">
         <tr>
             <th class="success" >글번호</th>
