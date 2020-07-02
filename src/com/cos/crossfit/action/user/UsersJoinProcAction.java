@@ -28,8 +28,14 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	         ) { 		   
 	      return;		   
 	}    		   
-	   String username = request.getParameter("username"); 
-	   String password = request.getParameter("password"); 
+		// 카카오 아이디와 구분하기 위해 회원가입시 _를 받지 않는다.
+		if(request.getParameter("username").contains("_")) {
+			Script.back("회원 아이디에 _를 넣을 수 없습니다.", response);
+			return;
+		}
+
+	   String username = request.getParameter("username").trim(); 
+	   String password = request.getParameter("password").trim(); 
 	   String email = request.getParameter("email"); 
 	   String address = request.getParameter("address");
 	   String userRole = RoleType.USER.toString();

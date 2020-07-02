@@ -25,10 +25,12 @@ public class UsersLoginProcAction implements Action {
 		}
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-
+		System.out.println("UsersLoginProcAction: username :"+ username);
+		System.out.println("UsersLoginProcAction: password :"+ password);
 		UsersRepository usersRepository = UsersRepository.getInstance();
 		Users user = usersRepository.findByUsernameAndPassword(username, password);
-
+		 
+		System.out.println("UsersLoginProcAction: user :"+ user);
 		if (user != null) {
 			HttpSession session = request.getSession();
 			
@@ -38,7 +40,8 @@ public class UsersLoginProcAction implements Action {
    
 			
 			session.setAttribute("principal", user);
-      
+           
+			System.out.println("UsersLoginProcAction: user :"+ user);
 			if (request.getParameter("remember") != null) {
 				Cookie cookie = new Cookie("remember", user.getUsername());
 				cookie.setHttpOnly(true);

@@ -24,6 +24,9 @@ public class UsersRepository {
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 
+	
+	
+	
 	public Users findById(int id) {
 		final String SQL = "SELECT * FROM users " + "WHERE id = ?";
 
@@ -86,7 +89,10 @@ public class UsersRepository {
 		try {
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(SQL);
-
+			
+//			System.out.println("findByUsernameAndPassword: username :"+ username);
+//			System.out.println("findByUsernameAndPassword: password :"+ password);
+			
 			pstmt.setString(1, username);
 			pstmt.setString(2, password);
 			rs = pstmt.executeQuery();
@@ -113,8 +119,8 @@ public class UsersRepository {
 		return null;
 	}
 
-	public int findByUsername(String username) {
-		final String SQL = "SELECT count(*) FROM users " + "WHERE username = ?";
+	public Users findByUsername(String username) {
+		final String SQL = "SELECT * FROM users " + "WHERE username = ?";
 
 		Users user = null;
 
@@ -127,7 +133,16 @@ public class UsersRepository {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				return rs.getInt(1);
+				user = new Users(); 
+				user.setId(rs.getInt("id"));
+				user.setUsername(rs.getString("username"));
+				user.setEmail(rs.getString("email"));
+				user.setAddress(rs.getString("address"));
+				user.setUserProfile(rs.getString("userProfile"));
+				user.setUserRole(rs.getString("userRole"));
+				user.setCreateDate(rs.getTimestamp("createDate"));
+				
+				return user;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -135,7 +150,7 @@ public class UsersRepository {
 		} finally {
 			DBConn.close(conn, pstmt, rs);
 		}
-		return -1;
+		return null;
 	}
 
 	public int save(Users user) {
