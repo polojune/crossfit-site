@@ -8,12 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cos.crossfit.action.Action;
+import com.cos.crossfit.action.inquirereply.InquireReplyDeleteProcAction;
+import com.cos.crossfit.action.inquirereply.InquireReplyWriteProcAction;
 import com.cos.crossfit.action.reply.ReplyDeleteProcAction;
 import com.cos.crossfit.action.reply.ReplyWriteProcAction;
 
-@WebServlet("/inqurereply")
+@WebServlet("/inquirereply")
 public class InquireReplyController extends HttpServlet {
-	private final static String TAG = "ReplyController";
+	private final static String TAG = "InquireReplyController";
 	private static final long serialVersionUID = 1L;
 
 	public InquireReplyController() {
@@ -40,13 +42,15 @@ public class InquireReplyController extends HttpServlet {
 		
 	}
 	 public Action router(String cmd) {
+		  System.out.println("InquireReplyController: cmd: " +cmd);
+		 
 		   if(cmd.equals("writeProc")) {
 			    //회원 가입 페이지로 이동
-		    return new ReplyWriteProcAction();   
+		    return new InquireReplyWriteProcAction();   
 		   
 		   }if(cmd.equals("deleteProc")) {
 			    //회원 가입 페이지로 이동
-		    return new ReplyDeleteProcAction();   
+		    return new InquireReplyDeleteProcAction();   
 		   
 		   }	  	   
 		   return null;

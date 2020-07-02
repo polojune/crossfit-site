@@ -56,7 +56,7 @@
 	</c:forEach>
 
 
-<%@ include file="include/paging.jsp"%>	
+<%@ include file="include/wodPaging.jsp"%>	
  
     <c:if test="${not empty sessionScope.admin}">
   <div class="row">

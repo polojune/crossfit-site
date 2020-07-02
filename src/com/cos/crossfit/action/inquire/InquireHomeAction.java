@@ -33,6 +33,9 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	  
 	  List<InquireResponseDto> posts = inquireRepository.listAll();
 	  request.setAttribute("posts", posts);
+	  int count = inquireRepository.count();
+	  int lastPage = (count - 1) / 5; 
+	  request.setAttribute("lastPage", lastPage);
 	// System.out.println("InquireHomeAction : " + posts );
 //	  List<Inquire> posts = inquireRepository.list();
 //	  request.setAttribute("posts", posts);

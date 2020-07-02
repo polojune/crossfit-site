@@ -48,7 +48,7 @@
 					
 
 <br><br><br><br><br><br><br><br>
- <%@ include file="include/paging.jsp"%>	
+ <%@ include file="include/inquirePaging.jsp"%>	
 <%@ include file="include/footer.jsp"%>
 
 

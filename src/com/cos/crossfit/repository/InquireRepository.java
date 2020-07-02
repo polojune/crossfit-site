@@ -28,7 +28,27 @@ public class InquireRepository {
 	private ResultSet rs = null;
 
 	
+  
+	public int updateReadCount(int id) {
+		final String SQL 
+		= "UPDATE inquire SET readCount = readCount + 1 WHERE id = ?";
+		
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			// 물음표 완성하기
+			pstmt.setInt(1, id);
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(TAG+"updateReadCount : "+e.getMessage());
+		} finally {
+			DBConn.close(conn, pstmt);
+		}
+		return -1;
+	}
 
+	
 	public InquireResponseDto importPost(int id) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("SELECT i.id , i.userId, i.title,i.content,i.readCount,i.createDate,u.username ");
@@ -247,7 +267,7 @@ public class InquireRepository {
 	}
 
 	public int count() {
-		final String SQL = "SELECT count(*) FROM board";
+		final String SQL = "SELECT count(*) FROM inquire";
 
 		try {
 			conn = DBConn.getConnection();

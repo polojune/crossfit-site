@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.cos.crossfit.db.DBConn;
+import com.cos.crossfit.dto.InquireReplyResponseDto;
 import com.cos.crossfit.dto.ReplyResponseDto;
+import com.cos.crossfit.model.InquireReply;
 import com.cos.crossfit.model.Reply;
 
 public class InquireReplyRepository {
@@ -29,7 +31,7 @@ public class InquireReplyRepository {
 
 	
 	public int deleteById(int id) {
-		final String SQL ="DELETE FROM reply WHERE id = ?";
+		final String SQL ="DELETE FROM inquirereply WHERE id = ?";
 	     try {
 	    		conn = DBConn.getConnection();
 	    		pstmt = conn.prepareStatement(SQL);
@@ -46,44 +48,44 @@ public class InquireReplyRepository {
 		return -1;
 	}	
 	
-	public List<ReplyResponseDto> findAll(int boardId) {
+	public List<InquireReplyResponseDto> findAll(int inquireId) {
 		StringBuffer sb = new StringBuffer();
-		sb.append("SELECT r.id, r.userId, r.boardId,r.content,r.createDate, ");
+		sb.append("SELECT i.id, i.userId, i.inquireId,i.content,i.createDate, ");
 		sb.append("u.username, u.userProfile ");
-		sb.append("FROM reply r INNER JOIN users u ");
-		sb.append("ON r.userId = u.id ");
-		sb.append("WHERE boardId = ? ");
-		sb.append("ORDER BY r.id DESC");
+		sb.append("FROM inquirereply i INNER JOIN users u ");
+		sb.append("ON i.userId = u.id ");
+		sb.append("WHERE inquireId = ? ");
+		sb.append("ORDER BY i.id DESC");
 		final String SQL =sb.toString();
-	    List<ReplyResponseDto> replyDtos = null;
+	    List<InquireReplyResponseDto> inquirereplyDtos = null;
 		try {
 	    		conn = DBConn.getConnection();
 	    		pstmt = conn.prepareStatement(SQL);
 		       //물음표 완성하기
-	           pstmt.setInt(1, boardId);
+	           pstmt.setInt(1, inquireId);
 	    	   rs = pstmt.executeQuery();
 	           //while 돌려서 rs -> java 오브젝트 집어 넣기	
-	    	   replyDtos = new ArrayList<>();
+	    	   inquirereplyDtos = new ArrayList<>();
 	    	   while(rs.next()) {
-	    		   Reply reply = Reply.builder()
+	    		   InquireReply inquirereply = InquireReply.builder()
 	    				   .id(rs.getInt(1))
 	    				   .userId(rs.getInt(2))
-	    				   .boardId(rs.getInt(3))
+	    				   .inquireId(rs.getInt(3))
 	    				   .content(rs.getString(4))
 	    				   .createDate(rs.getTimestamp(5))
 	    				   .build();
-	    		   ReplyResponseDto replyDto = ReplyResponseDto.builder()
-	    				   .reply(reply)
+	    		   InquireReplyResponseDto inquirereplyDto = InquireReplyResponseDto.builder()
+	    				   .inquirereply(inquirereply)
 	    				   .username(rs.getString(6))
 	    				   .userProfile(rs.getString(7))
 	    				   .build();
-	    		   replyDtos.add(replyDto);
+	    		   inquirereplyDtos.add(inquirereplyDto);
 	    		   
 	    	   }
-	    		return replyDtos;
+	    		return inquirereplyDtos;
 	     } catch (Exception e) {
 			 e.printStackTrace();
-			 System.out.println(TAG+"findAll(boardId) : "+e.getMessage());
+			 System.out.println(TAG+"findAll(inquireId) : "+e.getMessage());
 		}finally {
 			 DBConn.close(conn,pstmt,rs);
 		   	 
@@ -91,16 +93,16 @@ public class InquireReplyRepository {
 		return null;
 	}
 	
-	public int save(Reply reply) {
-		final String SQL = "INSERT INTO reply (id,userId,boardId,content,createDate) VALUES(REPLY_SEQ.NEXTVAL, ?,?,?,SYSDATE)";
+	public int save(InquireReply inquirereply) {
+		final String SQL = "INSERT INTO inquirereply (id,userId,inquireId,content,createDate) VALUES(REPLY_SEQ.NEXTVAL, ?,?,?,SYSDATE)";
 		try {
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(SQL);
 			// 물음표 완성하기
 
-			pstmt.setInt(1, reply.getUserId());
-			pstmt.setInt(2, reply.getBoardId());
-			pstmt.setString(3, reply.getContent());
+			pstmt.setInt(1, inquirereply.getUserId());
+			pstmt.setInt(2, inquirereply.getInquireId());
+			pstmt.setString(3, inquirereply.getContent());
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
