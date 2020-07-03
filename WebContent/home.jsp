@@ -20,12 +20,15 @@
 								<div class="col">
 									<div class="slide_content">
 										<div class="slide_title">
-											<div>Don't stop</div>
-											<div>when you're tired.</div>
-											<div>Stop when</div>
-											<div>you’re <span>done</span></div>
+											<div><span>Today Wod</span></div>
+											<div>'Fran'</div>
+											<div>21-15-9 Reps For Time</div>
+											<div>Thrusters(95/65lb)</div>
+											<div>Pull-Ups</div>
+										
 										</div>
-										<div class="button slide_button"><a href="#">Get Started</a></div>
+										<br><br>
+										<div class="button slide_button"><a href="/crossfit/board?cmd=detail&id=23">Get Started</a></div>
 									</div>
 								</div>
 							</div>
@@ -42,12 +45,10 @@
 								<div class="col">
 									<div class="slide_content">
 										<div class="slide_title">
-											<div>Don't stop</div>
-											<div>when you're tired.</div>
-											<div>Stop when</div>
-											<div>you’re <span>done</span></div>
-										</div>
-										<div class="button slide_button"><a href="#">Get Started</a></div>
+											<div><span>'Tomorrow'</span></div>
+											       <div><span>'Wod'</span></div>
+									</div>
+										<div class="button slide_button"><a href="/crossfit/board?cmd=detail&id=81">Get Started</a></div>
 									</div>
 								</div>
 							</div>
@@ -64,12 +65,11 @@
 								<div class="col">
 									<div class="slide_content">
 										<div class="slide_title">
-											<div>Don't stop</div>
-											<div>when you're tired.</div>
-											<div>Stop when</div>
-											<div>you’re <span>done</span></div>
+											<div><span>'The Day After Tomorrow Wod'</span></div>
+										
+										
 										</div>
-										<div class="button slide_button"><a href="#">Get Started</a></div>
+										<div class="button slide_button"><a href="/crossfit/board?cmd=detail&id=101">Get Started</a></div>
 									</div>
 								</div>
 							</div>
@@ -78,7 +78,7 @@
 				</div>
 
 			</div>
-
+           
 			<!-- Home Slider Dots -->
 			<div class="home_slider_dots_container">
 				<div class="container">

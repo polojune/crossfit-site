@@ -45,6 +45,7 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	       //http header 값 넣기 
 	       conn.setRequestMethod("POST");
 	       conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+	       conn.setDoOutput(true);
 	       //request 하기 
 	       BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream(),"UTF-8"));
 	       bw.write(bodyData);
@@ -69,14 +70,15 @@ public void execute(HttpServletRequest request, HttpServletResponse response) th
 	       
 	       HttpsURLConnection conn2 =(HttpsURLConnection)url2.openConnection();
 	       //http header 값 넣기 
-	       conn2.addRequestProperty("Authorization", "Bearer"+ oAuthToken.getAccess_token());
+	       conn2.setRequestProperty("Authorization", "Bearer "+oAuthToken.getAccess_token());
+	       //conn2.addRequestProperty("Authorization", "Bearer "+ oAuthToken.getAccess_token());
 	       conn2.setDoOutput(true);
 	       //request 하기 
 	       BufferedReader br2 = new BufferedReader(new InputStreamReader(conn2.getInputStream(),"UTF-8")); 
 	       
 	       String input2 ="";
 	       StringBuilder sb2 = new StringBuilder(); 
-	       while((input2 = br.readLine()) !=null) {
+	       while((input2 = br2.readLine()) !=null) {
 	    	     sb2.append(input2);
 	    	   
 	    	   

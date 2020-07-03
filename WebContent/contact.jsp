@@ -42,8 +42,8 @@
 							<div class="contact_title"><h1>information</h1></div>
 							<ul>
 								<li>Main Str, no 23, New York</li>
-								<li>010-2725-8574</li>
-								<li>polo_june@naver.com</li>
+								<li>010-7777-7777</li>
+								<li>7@naver.com</li>
 							</ul>
 						</div>
 					</div>

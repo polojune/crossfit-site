@@ -54,6 +54,7 @@ public class KakaoController extends HttpServlet {
 	
   public Action router(String cmd) {
 	   System.out.println(TAG+"cmd: "+ cmd);
+	   
 	  if(cmd.equals("callback")) {
 		      return new KakaoCallbackAction();
 

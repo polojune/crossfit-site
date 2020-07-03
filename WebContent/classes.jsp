@@ -115,14 +115,14 @@
 
 
 			</div>
-			<div class="row">
+	<!-- 		<div class="row">
 				<div class="col text-center">
 					<div class="button icon_box_button"><a href="#">Get Started</a></div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+ -->
 	<!-- Trainers -->
 
 	<div class="trainers">
