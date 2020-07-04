@@ -5,16 +5,15 @@
 
 <br><br><br><br><br><br><br>
 <div class="container">
-    
-	<form action="/crossfit/user?cmd=loginProc" method="POST" class="was-validated">
+	<form action="/crossfit/user?cmd=loginProc" method="POST" class="was-validated" style="width:285px; margin: 0 auto;">
 		<div class="form-group">
-			<label for="username">Username:</label> <input type="text" value="${cookie.remember.value}" class="form-control" id="username" placeholder="Enter username" name="username" required>
+			<label for="username">Username:</label> <input type="text" style="width:100%" value="${cookie.remember.value}" class="form-control" id="username" placeholder="Enter username" name="username" required>
 			<div class="valid-feedback">Valid.</div>
 			<div class="invalid-feedback">Please fill out this field.</div>
 		</div>
 		
 		<div class="form-group">
-			<label for="pwd">Password:</label> <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
+			<label for="pwd">Password:</label> <input type="password" style="width:100%"  class="form-control" id="password" placeholder="Enter password" name="password" required>
 			<div class="valid-feedback">Valid.</div>
 			<div class="invalid-feedback">Please fill out this field.</div>
 		</div>

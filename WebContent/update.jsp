@@ -5,7 +5,7 @@
 <br><br><br><br><br><br>
 <div class="container">
 
-	<form action="/crossfit/user?cmd=updateProc" method="post" class="was-validated" onsubmit="return validate()">
+	<form action="/crossfit/user?cmd=updateProc" method="post" class="was-validated" onsubmit="return validate()"style="width:400px; margin: 0 auto;">
         
         <input type="hidden" name="id" value="${principal.id}"/>
 		<div class="form-group">

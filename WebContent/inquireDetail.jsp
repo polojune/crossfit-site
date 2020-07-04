@@ -42,8 +42,9 @@
         </tr>
          
         <tr>
+        
         <c:if test="${not empty sessionScope.principal}">
-            <td colspan="4" class="text-center">
+            <td colspan="4" class="text-center"> 
                                                                                           
             <a type="button" class="btn btn-warning"  href="/crossfit/inquire?cmd=update&id=${detailDto.inquireDto.inquire.id}">수정하기</a>          
             <a type="button" class="btn btn-danger"  href="/crossfit/inquire?cmd=delete&id=${detailDto.inquireDto.inquire.id}">삭제하기</a>          

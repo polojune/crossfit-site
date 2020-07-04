@@ -6,7 +6,7 @@
 <div class="container">
      <br><br><br><br><br><br><br><br>
   	 
-	<form action="/crossfit/user?cmd=joinProc" method="post" class="was-validated" onsubmit="return validate()">
+	<form action="/crossfit/user?cmd=joinProc" method="post" class="was-validated" onsubmit="return validate()" style="width:400px; margin: 0 auto;">
 
 		<div class="form-group">
 			<label for="username">Username:</label>

@@ -18,7 +18,7 @@
 function init(){
 	var url = location.href;
 	//alert(url);
-	var confmKey = "devU01TX0FVVEgyMDIwMDYwMjA5NDkwMjEwOTgyMDE=";
+	var confmKey = "devU01TX0FVVEgyMDIwMDcwNDEzNTIzNzEwOTkyNjM=";
 	var resultType = "4";
 	var inputYn= "<%=inputYn%>";
 	if(inputYn != "Y"){
